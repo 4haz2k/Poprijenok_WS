@@ -1,0 +1,6 @@
+D:\Desktop\Poprijenok_WS\Poprijenok\WSUniversalLib\bin\Debug\WSUniversalLib.dll
+D:\Desktop\Poprijenok_WS\Poprijenok\WSUniversalLib\bin\Debug\WSUniversalLib.pdb
+D:\Desktop\Poprijenok_WS\Poprijenok\WSUniversalLib\obj\Debug\WSUniversalLib.csproj.AssemblyReference.cache
+D:\Desktop\Poprijenok_WS\Poprijenok\WSUniversalLib\obj\Debug\WSUniversalLib.csproj.CoreCompileInputs.cache
+D:\Desktop\Poprijenok_WS\Poprijenok\WSUniversalLib\obj\Debug\WSUniversalLib.dll
+D:\Desktop\Poprijenok_WS\Poprijenok\WSUniversalLib\obj\Debug\WSUniversalLib.pdb
