@@ -24,3 +24,5 @@ D:\Desktop\Poprijenok_WS\Poprijenok\Poprijenok\obj\Debug\AgentsPage.baml
 D:\Desktop\Poprijenok_WS\Poprijenok\Poprijenok\obj\Debug\Poprijenok.csproj.CopyComplete
 D:\Desktop\Poprijenok_WS\Poprijenok\Poprijenok\obj\Debug\EditAgentsPriority.g.cs
 D:\Desktop\Poprijenok_WS\Poprijenok\Poprijenok\obj\Debug\EditAgentsPriority.baml
+D:\Desktop\Poprijenok_WS\Poprijenok\Poprijenok\obj\Debug\AddAgentPage.g.cs
+D:\Desktop\Poprijenok_WS\Poprijenok\Poprijenok\obj\Debug\AddAgentPage.baml

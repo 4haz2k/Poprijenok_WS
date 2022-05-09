@@ -1,0 +1,58 @@
+﻿<Page x:Class="Poprijenok.AddAgentPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Poprijenok"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddAgentPage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <Grid Margin="0,0,0,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock FontFamily="Comic Sans MS" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Text="Наименование" Margin="0,0,10,0"></TextBlock>
+            <TextBlock FontFamily="Comic Sans MS" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1" Grid.Column="0" Text="Тип агента" Margin="0,0,10,0"></TextBlock>
+            <TextBlock FontFamily="Comic Sans MS" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="2" Grid.Column="0" Text="Приоритет" Margin="0,0,10,0"></TextBlock>
+            <TextBlock FontFamily="Comic Sans MS" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" Text="Логотип" Margin="0,0,10,0"></TextBlock>
+            <TextBlock FontFamily="Comic Sans MS" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0" Text="Адрес" Margin="0,0,10,0"></TextBlock>
+            <TextBlock FontFamily="Comic Sans MS" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="5" Grid.Column="0" Text="ИНН" Margin="0,0,10,0"></TextBlock>
+            <TextBlock FontFamily="Comic Sans MS" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="6" Grid.Column="0" Text="КПП" Margin="0,0,10,0"></TextBlock>
+            <TextBlock FontFamily="Comic Sans MS" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="7" Grid.Column="0" Text="ФИО директора" Margin="0,0,10,0"></TextBlock>
+            <TextBlock FontFamily="Comic Sans MS" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="8" Grid.Column="0" Text="Телефон" Margin="0,0,10,0"></TextBlock>
+            <TextBlock FontFamily="Comic Sans MS" FontSize="14" HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="9" Grid.Column="0" Text="Email" Margin="0,0,10,0"></TextBlock>
+
+            <TextBox FontFamily="Comic Sans MS" FontSize="14" Grid.Row="0" Grid.Column="1" Margin="10" x:Name="AgentTitle"></TextBox>
+            <ComboBox FontFamily="Comic Sans MS" FontSize="14" Grid.Row="1" Grid.Column="1" DisplayMemberPath="title" Margin="10" x:Name="AgentType"></ComboBox>
+            <TextBox FontFamily="Comic Sans MS" FontSize="14" Grid.Row="2" Grid.Column="1" Margin="10" x:Name="AgentPriority"></TextBox>
+            <TextBox FontFamily="Comic Sans MS" FontSize="14" Grid.Row="3" Grid.Column="1" Margin="10" x:Name="AgentLogo"></TextBox>
+            <TextBox FontFamily="Comic Sans MS" FontSize="14" Grid.Row="4" Grid.Column="1" Margin="10" x:Name="AgentAddress"></TextBox>
+            <TextBox FontFamily="Comic Sans MS" FontSize="14" Grid.Row="5" Grid.Column="1" Margin="10" x:Name="AgentINN"></TextBox>
+            <TextBox FontFamily="Comic Sans MS" FontSize="14" Grid.Row="6" Grid.Column="1" Margin="10" x:Name="AgentKPP"></TextBox>
+            <TextBox FontFamily="Comic Sans MS" FontSize="14" Grid.Row="7" Grid.Column="1" Margin="10" x:Name="AgentFIO"></TextBox>
+            <TextBox FontFamily="Comic Sans MS" FontSize="14" Grid.Row="8" Grid.Column="1" Margin="10" x:Name="AgentPhone"></TextBox>
+            <TextBox FontFamily="Comic Sans MS" FontSize="14" Grid.Row="9" Grid.Column="1" Margin="10" x:Name="AgentEmail"></TextBox>
+        </Grid>
+        <Button Grid.Row="1" Margin="10" Content="Добавить агента" Click="AddAgent_Click"></Button>
+    </Grid>
+</Page>

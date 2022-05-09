@@ -67,6 +67,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AddAgentPage.xaml.cs">
+      <DependentUpon>AddAgentPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Agents.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
@@ -147,6 +150,10 @@
     <Compile Include="Supplier_type.cs">
       <DependentUpon>DataBase.tt</DependentUpon>
     </Compile>
+    <Page Include="AddAgentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="AgentsPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

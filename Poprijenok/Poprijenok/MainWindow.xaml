@@ -15,10 +15,12 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="200"/>
                 <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="200"/>
             </Grid.ColumnDefinitions>
             <Image Source="/Poprijenok;component/Resources/Попрыженок.png" Margin="10" HorizontalAlignment="Left"></Image>
             <TextBlock x:Name="PageTitle" Grid.Column="1" VerticalAlignment="Center" FontFamily="Comic Sans MS" FontSize="32" Margin="10"></TextBlock>
+            <Button x:Name="BackButton" Margin="10" Grid.Column="2" Height="35" Content="Назад" FontFamily="Comic Sans MS" FontSize="18" Visibility="Hidden" Click="BackButton_Click"></Button>
         </Grid>
-        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="1"></Frame>
+        <Frame x:Name="MainFrame" NavigationUIVisibility="Hidden" Grid.Row="1" ContentRendered="MainFrame_ContentRendered"></Frame>
     </Grid>
 </Window>

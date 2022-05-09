@@ -21,6 +21,10 @@ namespace Poprijenok
     {
         private List<AgentsNew> agents;
 
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="_agents"></param>
         public EditAgentsPriority(List<AgentsNew> _agents)
         {
             InitializeComponent();

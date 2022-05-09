@@ -21,7 +21,7 @@
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TextBox x:Name="SearchField" Margin="25" FontFamily="Comic Sans MS"></TextBox>
+            <TextBox x:Name="SearchField" Margin="25" FontFamily="Comic Sans MS" TextChanged="SearchField_TextChanged"></TextBox>
             <ComboBox x:Name="SortingFiled" Grid.Column="1" Margin="10 25" FontFamily="Comic Sans MS"></ComboBox>
             <ComboBox x:Name="FilterFiled" Grid.Column="2" Margin="10 25" FontFamily="Comic Sans MS" DisplayMemberPath="title" SelectedIndex="0" SelectionChanged="FilterFiled_SelectionChanged"></ComboBox>
         </Grid>
@@ -70,17 +70,19 @@
             </Grid.ColumnDefinitions>
             <Button Margin="5 15" Content="Предыдущая" FontFamily="Comic Sans MS" Click="ButtonPrev_Click"></Button>
             <Grid Grid.Column="1">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="12*"/>
-                    <ColumnDefinition Width="13*"/>
-                </Grid.ColumnDefinitions>
-                <TextBox Margin="20"></TextBox>
-                <TextBlock Text="Кол-во страниц: " Grid.Column="1" FontFamily="Comic Sans MS" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2"></TextBlock>
+                <TextBlock x:Name="PagesCount" Grid.Column="1" FontFamily="Comic Sans MS" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2"></TextBlock>
             </Grid>
             <Button Margin="5 15" Grid.Column="2" Content="Следующая" FontFamily="Comic Sans MS" Click="ButtonNext_Click"></Button>
         </Grid>
         <Grid Grid.Row="3">
-            <Button x:Name="EditPriority" Margin="5 15" Grid.Column="2" Content="Изменить" FontFamily="Comic Sans MS" Click="ChangePriority_Click"></Button>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="EditPriority" Margin="5 15" Content="Изменить приоритеты" FontFamily="Comic Sans MS" Click="ChangePriority_Click" Grid.Column="2"/>
+            <Button x:Name="AddAgent" Margin="5 15" Content="Добавить агента" FontFamily="Comic Sans MS" Click="AddAgent_Click" Grid.Column="1"/>
+            <Button x:Name="DeleteAgent" Margin="5 15" Content="Удалить агента" FontFamily="Comic Sans MS" Click="DeleteAgent_Click" Grid.Column="0"/>
         </Grid>
     </Grid>
 </Page>
