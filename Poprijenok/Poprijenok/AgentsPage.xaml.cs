@@ -220,6 +220,11 @@ namespace Poprijenok
             FilterData();
         }
 
+        /// <summary>
+        /// Кнопка изменения приоритета
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ChangePriority_Click(object sender, RoutedEventArgs e)
         {
             var selectedItems = LViewAgents.SelectedItems;      
