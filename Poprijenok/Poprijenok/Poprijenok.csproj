@@ -1,0 +1,626 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F7691036-25A4-462C-80B1-BBE37F23CBF6}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Poprijenok</RootNamespace>
+    <AssemblyName>Poprijenok</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Попрыженок.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Agents.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AgentsNew.cs" />
+    <Compile Include="AgentsPage.xaml.cs">
+      <DependentUpon>AgentsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Agents_type.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Agent_address.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Agent_release_history.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cex.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EditAgentsPriority.xaml.cs">
+      <DependentUpon>EditAgentsPriority.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Employee_pasport.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employes.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Equipment.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Manager.cs" />
+    <Compile Include="Materials.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Materials_history.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="material_type.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Minimal_price_history_change.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Orders.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Paginator.cs" />
+    <Compile Include="Priority_history.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Products.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product_info.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product_sale.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product_size.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Product_type.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Standart_types.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Suppliers.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Supplier_type.cs">
+      <DependentUpon>DataBase.tt</DependentUpon>
+    </Compile>
+    <Page Include="AgentsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditAgentsPriority.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataBase.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBase.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DataBase.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBase.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="DataBase.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>DataBase.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DataBase.edmx.diagram">
+      <DependentUpon>DataBase.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_10.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_12.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_13.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_14.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_17.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_18.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_23.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_25.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_26.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_27.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_28.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_30.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_31.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_33.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_34.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_35.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_36.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_37.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_38.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_39.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_40.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_41.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_42.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_43.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_44.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_45.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_46.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_47.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_49.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_50.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_51.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_52.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_53.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_54.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_55.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_56.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_57.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_58.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_59.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_60.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_61.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_62.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_63.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_64.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_65.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_66.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_67.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_68.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_69.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_70.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_71.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_73.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_74.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_75.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_76.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_77.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_78.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_79.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_80.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_81.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_82.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_83.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_84.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_85.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_86.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_87.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_88.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_89.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_90.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_91.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_92.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_93.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_94.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_95.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_97.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_98.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_99.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_100.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_101.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_102.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_103.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_104.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_105.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_106.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_107.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_108.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_109.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_110.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_111.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_112.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_113.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_114.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_115.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_116.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_117.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_118.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_119.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_120.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_121.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_122.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_123.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_124.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_125.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_126.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_127.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_129.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\agent_130.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Попрыженок.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataBase.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DataBase.Context.cs</LastGenOutput>
+      <DependentUpon>DataBase.edmx</DependentUpon>
+    </Content>
+    <Content Include="DataBase.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>DataBase.edmx</DependentUpon>
+      <LastGenOutput>DataBase.cs</LastGenOutput>
+    </Content>
+    <Resource Include="Resources\Попрыженок.png" />
+    <Resource Include="Resources\picture.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

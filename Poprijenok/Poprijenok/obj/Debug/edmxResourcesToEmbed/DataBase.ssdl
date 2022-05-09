@@ -1,0 +1,709 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище poprijenok_PAVLOVASModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Agent_address">
+    <Key>
+      <PropertyRef Name="Agent_ID" />
+    </Key>
+    <Property Name="Agent_ID" Type="int" Nullable="false" />
+    <Property Name="index" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="region" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="city" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="street" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="frame" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Agent_release_history">
+    <Key>
+      <PropertyRef Name="release_ID" />
+    </Key>
+    <Property Name="release_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="agent_ID" Type="int" Nullable="false" />
+    <Property Name="product_ID" Type="int" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+    <Property Name="qty" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Agents">
+    <Key>
+      <PropertyRef Name="agent_ID" />
+    </Key>
+    <Property Name="agent_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="agent_type_ID" Type="int" Nullable="false" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="email" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="phone" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="logo" Type="nvarchar(max)" />
+    <Property Name="priority" Type="int" Nullable="false" />
+    <Property Name="director_surname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="director_name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="director_patronymic" Type="nvarchar(max)" />
+    <Property Name="INN" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="KPP" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Agents_type">
+    <Key>
+      <PropertyRef Name="type_ID" />
+    </Key>
+    <Property Name="type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cex">
+    <Key>
+      <PropertyRef Name="cex_num_ID" />
+    </Key>
+    <Property Name="cex_num_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cex_empolyees">
+    <Key>
+      <PropertyRef Name="cex_num_ID" />
+      <PropertyRef Name="employee_ID" />
+    </Key>
+    <Property Name="cex_num_ID" Type="int" Nullable="false" />
+    <Property Name="employee_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee_pasport">
+    <Key>
+      <PropertyRef Name="employee_ID" />
+    </Key>
+    <Property Name="employee_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="patronymic" Type="nvarchar(max)" />
+    <Property Name="surname" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="name" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="birthday" Type="date" Nullable="false" />
+    <Property Name="date_of_issue" Type="date" Nullable="false" />
+    <Property Name="issued_by" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="department_code" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="series" Type="int" Nullable="false" />
+    <Property Name="number" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employes">
+    <Key>
+      <PropertyRef Name="employee_ID" />
+    </Key>
+    <Property Name="employee_ID" Type="int" Nullable="false" />
+    <Property Name="bank_details" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="is_have_family" Type="bit" Nullable="false" />
+    <Property Name="health_problems" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Equipment">
+    <Key>
+      <PropertyRef Name="equipment_ID" />
+    </Key>
+    <Property Name="equipment_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="qty" Type="int" Nullable="false" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Equipment_of_employee">
+    <Key>
+      <PropertyRef Name="equipment_ID" />
+      <PropertyRef Name="employee_ID" />
+    </Key>
+    <Property Name="equipment_ID" Type="int" Nullable="false" />
+    <Property Name="employee_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="material_type">
+    <Key>
+      <PropertyRef Name="type_ID" />
+    </Key>
+    <Property Name="type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Materials">
+    <Key>
+      <PropertyRef Name="material_ID" />
+    </Key>
+    <Property Name="material_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="material_type_ID" Type="int" Nullable="false" />
+    <Property Name="qty_in_package" Type="int" Nullable="false" />
+    <Property Name="unit" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="qty_in_storage" Type="int" Nullable="false" />
+    <Property Name="minimal_qty" Type="int" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="image" Type="nvarchar(max)" />
+    <Property Name="price" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Materials_history">
+    <Key>
+      <PropertyRef Name="material_ID" />
+    </Key>
+    <Property Name="material_ID" Type="int" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+    <Property Name="qty" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="materials_need_to_create_poduct">
+    <Key>
+      <PropertyRef Name="product_ID" />
+      <PropertyRef Name="material_ID" />
+    </Key>
+    <Property Name="product_ID" Type="int" Nullable="false" />
+    <Property Name="material_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Minimal_price_history_change">
+    <Key>
+      <PropertyRef Name="agent_ID" />
+    </Key>
+    <Property Name="agent_ID" Type="int" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="order_ID" />
+    </Key>
+    <Property Name="order_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="agent_ID" Type="int" Nullable="false" />
+    <Property Name="product_ID" Type="int" Nullable="false" />
+    <Property Name="status" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="date" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Priority_history">
+    <Key>
+      <PropertyRef Name="history_ID" />
+    </Key>
+    <Property Name="history_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="agent_ID" Type="int" Nullable="false" />
+    <Property Name="date" Type="date" />
+  </EntityType>
+  <EntityType Name="Product_info">
+    <Key>
+      <PropertyRef Name="product_ID" />
+    </Key>
+    <Property Name="product_ID" Type="int" Nullable="false" />
+    <Property Name="description" Type="nvarchar(max)" />
+    <Property Name="weight_neto" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="weight_with_neto" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="sertificate" Type="nvarchar(max)" />
+    <Property Name="standart_type_ID" Type="int" Nullable="false" />
+    <Property Name="product_image" Type="nvarchar(max)" />
+    <Property Name="time_to_create" Type="varbinary(max)" Nullable="false" />
+    <Property Name="cost_price" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product_sale">
+    <Key>
+      <PropertyRef Name="product_sale_ID" />
+    </Key>
+    <Property Name="product_sale_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="product_ID" Type="int" Nullable="false" />
+    <Property Name="agent_ID" Type="int" Nullable="false" />
+    <Property Name="release_date" Type="date" Nullable="false" />
+    <Property Name="qty" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product_size">
+    <Key>
+      <PropertyRef Name="product_ID" />
+    </Key>
+    <Property Name="product_ID" Type="int" Nullable="false" />
+    <Property Name="width" Type="float" Nullable="false" />
+    <Property Name="height" Type="float" Nullable="false" />
+    <Property Name="lenght" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Product_type">
+    <Key>
+      <PropertyRef Name="product_type_ID" />
+    </Key>
+    <Property Name="product_type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="product_type_ID" Type="int" Nullable="false" />
+    <Property Name="articul" Type="int" Nullable="false" />
+    <Property Name="peoples_need_to_create" Type="int" Nullable="false" />
+    <Property Name="cex_num_ID" Type="int" Nullable="false" />
+    <Property Name="minimal_price" Type="money" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Standart_types">
+    <Key>
+      <PropertyRef Name="type_ID" />
+    </Key>
+    <Property Name="type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Supplier_type">
+    <Key>
+      <PropertyRef Name="supplier_type_ID" />
+    </Key>
+    <Property Name="supplier_type_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Suppliers">
+    <Key>
+      <PropertyRef Name="supplier_ID" />
+    </Key>
+    <Property Name="supplier_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="INN" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="supplier_type_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Supply_history">
+    <Key>
+      <PropertyRef Name="supplier_ID" />
+      <PropertyRef Name="material_ID" />
+    </Key>
+    <Property Name="supplier_ID" Type="int" Nullable="false" />
+    <Property Name="material_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Agent_address_Agents">
+    <End Role="Agents" Type="Self.Agents" Multiplicity="1" />
+    <End Role="Agent_address" Type="Self.Agent_address" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Agents">
+        <PropertyRef Name="agent_ID" />
+      </Principal>
+      <Dependent Role="Agent_address">
+        <PropertyRef Name="Agent_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agent_release_history_Agents">
+    <End Role="Agents" Type="Self.Agents" Multiplicity="1" />
+    <End Role="Agent_release_history" Type="Self.Agent_release_history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agents">
+        <PropertyRef Name="agent_ID" />
+      </Principal>
+      <Dependent Role="Agent_release_history">
+        <PropertyRef Name="agent_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agent_release_history_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Agent_release_history" Type="Self.Agent_release_history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="Agent_release_history">
+        <PropertyRef Name="product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agents_Agents_type">
+    <End Role="Agents_type" Type="Self.Agents_type" Multiplicity="1" />
+    <End Role="Agents" Type="Self.Agents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agents_type">
+        <PropertyRef Name="type_ID" />
+      </Principal>
+      <Dependent Role="Agents">
+        <PropertyRef Name="agent_type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cex_Employes">
+    <End Role="Employes" Type="Self.Employes" Multiplicity="1" />
+    <End Role="Cex_empolyees" Type="Self.Cex_empolyees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employes">
+        <PropertyRef Name="employee_ID" />
+      </Principal>
+      <Dependent Role="Cex_empolyees">
+        <PropertyRef Name="employee_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Cex_empolyees_Cex">
+    <End Role="Cex" Type="Self.Cex" Multiplicity="1" />
+    <End Role="Cex_empolyees" Type="Self.Cex_empolyees" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cex">
+        <PropertyRef Name="cex_num_ID" />
+      </Principal>
+      <Dependent Role="Cex_empolyees">
+        <PropertyRef Name="cex_num_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employes_Employee_pasport">
+    <End Role="Employee_pasport" Type="Self.Employee_pasport" Multiplicity="1" />
+    <End Role="Employes" Type="Self.Employes" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Employee_pasport">
+        <PropertyRef Name="employee_ID" />
+      </Principal>
+      <Dependent Role="Employes">
+        <PropertyRef Name="employee_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Equipment_of_employee_Employes">
+    <End Role="Employes" Type="Self.Employes" Multiplicity="1" />
+    <End Role="Equipment_of_employee" Type="Self.Equipment_of_employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employes">
+        <PropertyRef Name="employee_ID" />
+      </Principal>
+      <Dependent Role="Equipment_of_employee">
+        <PropertyRef Name="employee_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Equipment_of_employee_Equipment">
+    <End Role="Equipment" Type="Self.Equipment" Multiplicity="1" />
+    <End Role="Equipment_of_employee" Type="Self.Equipment_of_employee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipment">
+        <PropertyRef Name="equipment_ID" />
+      </Principal>
+      <Dependent Role="Equipment_of_employee">
+        <PropertyRef Name="equipment_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Materials_history_Materials">
+    <End Role="Materials" Type="Self.Materials" Multiplicity="1" />
+    <End Role="Materials_history" Type="Self.Materials_history" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Materials">
+        <PropertyRef Name="material_ID" />
+      </Principal>
+      <Dependent Role="Materials_history">
+        <PropertyRef Name="material_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Materials_material_type">
+    <End Role="material_type" Type="Self.material_type" Multiplicity="1" />
+    <End Role="Materials" Type="Self.Materials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="material_type">
+        <PropertyRef Name="type_ID" />
+      </Principal>
+      <Dependent Role="Materials">
+        <PropertyRef Name="material_type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_materials_need_to_create_poduct_Materials">
+    <End Role="Materials" Type="Self.Materials" Multiplicity="1" />
+    <End Role="materials_need_to_create_poduct" Type="Self.materials_need_to_create_poduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materials">
+        <PropertyRef Name="material_ID" />
+      </Principal>
+      <Dependent Role="materials_need_to_create_poduct">
+        <PropertyRef Name="material_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_materials_need_to_create_poduct_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="materials_need_to_create_poduct" Type="Self.materials_need_to_create_poduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="materials_need_to_create_poduct">
+        <PropertyRef Name="product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Minimal_price_history_change_Agents">
+    <End Role="Agents" Type="Self.Agents" Multiplicity="1" />
+    <End Role="Minimal_price_history_change" Type="Self.Minimal_price_history_change" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Agents">
+        <PropertyRef Name="agent_ID" />
+      </Principal>
+      <Dependent Role="Minimal_price_history_change">
+        <PropertyRef Name="agent_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Agents">
+    <End Role="Agents" Type="Self.Agents" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agents">
+        <PropertyRef Name="agent_ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="agent_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Priority_history_Agents">
+    <End Role="Agents" Type="Self.Agents" Multiplicity="1" />
+    <End Role="Priority_history" Type="Self.Priority_history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agents">
+        <PropertyRef Name="agent_ID" />
+      </Principal>
+      <Dependent Role="Priority_history">
+        <PropertyRef Name="agent_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_info_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Product_info" Type="Self.Product_info" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="Product_info">
+        <PropertyRef Name="product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_info_Standart_types">
+    <End Role="Standart_types" Type="Self.Standart_types" Multiplicity="1" />
+    <End Role="Product_info" Type="Self.Product_info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Standart_types">
+        <PropertyRef Name="type_ID" />
+      </Principal>
+      <Dependent Role="Product_info">
+        <PropertyRef Name="standart_type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_sale_Agents">
+    <End Role="Agents" Type="Self.Agents" Multiplicity="1" />
+    <End Role="Product_sale" Type="Self.Product_sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agents">
+        <PropertyRef Name="agent_ID" />
+      </Principal>
+      <Dependent Role="Product_sale">
+        <PropertyRef Name="agent_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_sale_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Product_sale" Type="Self.Product_sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="Product_sale">
+        <PropertyRef Name="product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_size_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Product_size" Type="Self.Product_size" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="Product_size">
+        <PropertyRef Name="product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Cex">
+    <End Role="Cex" Type="Self.Cex" Multiplicity="1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cex">
+        <PropertyRef Name="cex_num_ID" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="cex_num_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Product_type">
+    <End Role="Product_type" Type="Self.Product_type" Multiplicity="1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product_type">
+        <PropertyRef Name="product_type_ID" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="product_type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Suppliers_Supplier_type">
+    <End Role="Supplier_type" Type="Self.Supplier_type" Multiplicity="1" />
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier_type">
+        <PropertyRef Name="supplier_type_ID" />
+      </Principal>
+      <Dependent Role="Suppliers">
+        <PropertyRef Name="supplier_type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Supply_history_Materials">
+    <End Role="Materials" Type="Self.Materials" Multiplicity="1" />
+    <End Role="Supply_history" Type="Self.Supply_history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materials">
+        <PropertyRef Name="material_ID" />
+      </Principal>
+      <Dependent Role="Supply_history">
+        <PropertyRef Name="material_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Supply_history_Suppliers">
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="1" />
+    <End Role="Supply_history" Type="Self.Supply_history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Suppliers">
+        <PropertyRef Name="supplier_ID" />
+      </Principal>
+      <Dependent Role="Supply_history">
+        <PropertyRef Name="supplier_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище poprijenok_PAVLOVASModelContainer">
+    <EntitySet Name="Agent_address" EntityType="Self.Agent_address" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Agent_release_history" EntityType="Self.Agent_release_history" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Agents" EntityType="Self.Agents" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Agents_type" EntityType="Self.Agents_type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cex" EntityType="Self.Cex" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cex_empolyees" EntityType="Self.Cex_empolyees" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee_pasport" EntityType="Self.Employee_pasport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employes" EntityType="Self.Employes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Equipment" EntityType="Self.Equipment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Equipment_of_employee" EntityType="Self.Equipment_of_employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="material_type" EntityType="Self.material_type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Materials" EntityType="Self.Materials" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Materials_history" EntityType="Self.Materials_history" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="materials_need_to_create_poduct" EntityType="Self.materials_need_to_create_poduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Minimal_price_history_change" EntityType="Self.Minimal_price_history_change" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Priority_history" EntityType="Self.Priority_history" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_info" EntityType="Self.Product_info" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_sale" EntityType="Self.Product_sale" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_size" EntityType="Self.Product_size" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Product_type" EntityType="Self.Product_type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Standart_types" EntityType="Self.Standart_types" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supplier_type" EntityType="Self.Supplier_type" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supply_history" EntityType="Self.Supply_history" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Agent_address_Agents" Association="Self.FK_Agent_address_Agents">
+      <End Role="Agents" EntitySet="Agents" />
+      <End Role="Agent_address" EntitySet="Agent_address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agent_release_history_Agents" Association="Self.FK_Agent_release_history_Agents">
+      <End Role="Agents" EntitySet="Agents" />
+      <End Role="Agent_release_history" EntitySet="Agent_release_history" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agent_release_history_Products" Association="Self.FK_Agent_release_history_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Agent_release_history" EntitySet="Agent_release_history" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agents_Agents_type" Association="Self.FK_Agents_Agents_type">
+      <End Role="Agents_type" EntitySet="Agents_type" />
+      <End Role="Agents" EntitySet="Agents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cex_Employes" Association="Self.FK_Cex_Employes">
+      <End Role="Employes" EntitySet="Employes" />
+      <End Role="Cex_empolyees" EntitySet="Cex_empolyees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Cex_empolyees_Cex" Association="Self.FK_Cex_empolyees_Cex">
+      <End Role="Cex" EntitySet="Cex" />
+      <End Role="Cex_empolyees" EntitySet="Cex_empolyees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employes_Employee_pasport" Association="Self.FK_Employes_Employee_pasport">
+      <End Role="Employee_pasport" EntitySet="Employee_pasport" />
+      <End Role="Employes" EntitySet="Employes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Equipment_of_employee_Employes" Association="Self.FK_Equipment_of_employee_Employes">
+      <End Role="Employes" EntitySet="Employes" />
+      <End Role="Equipment_of_employee" EntitySet="Equipment_of_employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Equipment_of_employee_Equipment" Association="Self.FK_Equipment_of_employee_Equipment">
+      <End Role="Equipment" EntitySet="Equipment" />
+      <End Role="Equipment_of_employee" EntitySet="Equipment_of_employee" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Materials_history_Materials" Association="Self.FK_Materials_history_Materials">
+      <End Role="Materials" EntitySet="Materials" />
+      <End Role="Materials_history" EntitySet="Materials_history" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Materials_material_type" Association="Self.FK_Materials_material_type">
+      <End Role="material_type" EntitySet="material_type" />
+      <End Role="Materials" EntitySet="Materials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_materials_need_to_create_poduct_Materials" Association="Self.FK_materials_need_to_create_poduct_Materials">
+      <End Role="Materials" EntitySet="Materials" />
+      <End Role="materials_need_to_create_poduct" EntitySet="materials_need_to_create_poduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_materials_need_to_create_poduct_Products" Association="Self.FK_materials_need_to_create_poduct_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="materials_need_to_create_poduct" EntitySet="materials_need_to_create_poduct" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Minimal_price_history_change_Agents" Association="Self.FK_Minimal_price_history_change_Agents">
+      <End Role="Agents" EntitySet="Agents" />
+      <End Role="Minimal_price_history_change" EntitySet="Minimal_price_history_change" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Agents" Association="Self.FK_Orders_Agents">
+      <End Role="Agents" EntitySet="Agents" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Products" Association="Self.FK_Orders_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Priority_history_Agents" Association="Self.FK_Priority_history_Agents">
+      <End Role="Agents" EntitySet="Agents" />
+      <End Role="Priority_history" EntitySet="Priority_history" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_info_Products" Association="Self.FK_Product_info_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Product_info" EntitySet="Product_info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_info_Standart_types" Association="Self.FK_Product_info_Standart_types">
+      <End Role="Standart_types" EntitySet="Standart_types" />
+      <End Role="Product_info" EntitySet="Product_info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_sale_Agents" Association="Self.FK_Product_sale_Agents">
+      <End Role="Agents" EntitySet="Agents" />
+      <End Role="Product_sale" EntitySet="Product_sale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_sale_Products" Association="Self.FK_Product_sale_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Product_sale" EntitySet="Product_sale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_size_Products" Association="Self.FK_Product_size_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Product_size" EntitySet="Product_size" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Cex" Association="Self.FK_Products_Cex">
+      <End Role="Cex" EntitySet="Cex" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Product_type" Association="Self.FK_Products_Product_type">
+      <End Role="Product_type" EntitySet="Product_type" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Suppliers_Supplier_type" Association="Self.FK_Suppliers_Supplier_type">
+      <End Role="Supplier_type" EntitySet="Supplier_type" />
+      <End Role="Suppliers" EntitySet="Suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Supply_history_Materials" Association="Self.FK_Supply_history_Materials">
+      <End Role="Materials" EntitySet="Materials" />
+      <End Role="Supply_history" EntitySet="Supply_history" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Supply_history_Suppliers" Association="Self.FK_Supply_history_Suppliers">
+      <End Role="Suppliers" EntitySet="Suppliers" />
+      <End Role="Supply_history" EntitySet="Supply_history" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

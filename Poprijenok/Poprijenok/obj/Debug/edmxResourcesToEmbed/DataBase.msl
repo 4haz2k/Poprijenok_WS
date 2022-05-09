@@ -1,0 +1,273 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище poprijenok_PAVLOVASModelContainer" CdmEntityContainer="poprijenokEntities">
+    <EntitySetMapping Name="Agent_address">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.Agent_address">
+        <MappingFragment StoreEntitySet="Agent_address">
+          <ScalarProperty Name="Agent_ID" ColumnName="Agent_ID" />
+          <ScalarProperty Name="index" ColumnName="index" />
+          <ScalarProperty Name="region" ColumnName="region" />
+          <ScalarProperty Name="city" ColumnName="city" />
+          <ScalarProperty Name="street" ColumnName="street" />
+          <ScalarProperty Name="frame" ColumnName="frame" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Agent_release_history">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.Agent_release_history">
+        <MappingFragment StoreEntitySet="Agent_release_history">
+          <ScalarProperty Name="release_ID" ColumnName="release_ID" />
+          <ScalarProperty Name="agent_ID" ColumnName="agent_ID" />
+          <ScalarProperty Name="product_ID" ColumnName="product_ID" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Agents">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.Agents">
+        <MappingFragment StoreEntitySet="Agents">
+          <ScalarProperty Name="agent_ID" ColumnName="agent_ID" />
+          <ScalarProperty Name="agent_type_ID" ColumnName="agent_type_ID" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="logo" ColumnName="logo" />
+          <ScalarProperty Name="priority" ColumnName="priority" />
+          <ScalarProperty Name="director_surname" ColumnName="director_surname" />
+          <ScalarProperty Name="director_name" ColumnName="director_name" />
+          <ScalarProperty Name="director_patronymic" ColumnName="director_patronymic" />
+          <ScalarProperty Name="INN" ColumnName="INN" />
+          <ScalarProperty Name="KPP" ColumnName="KPP" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Agents_type">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.Agents_type">
+        <MappingFragment StoreEntitySet="Agents_type">
+          <ScalarProperty Name="type_ID" ColumnName="type_ID" />
+          <ScalarProperty Name="title" ColumnName="title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cex">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.Cex">
+        <MappingFragment StoreEntitySet="Cex">
+          <ScalarProperty Name="cex_num_ID" ColumnName="cex_num_ID" />
+          <ScalarProperty Name="title" ColumnName="title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee_pasport">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.Employee_pasport">
+        <MappingFragment StoreEntitySet="Employee_pasport">
+          <ScalarProperty Name="employee_ID" ColumnName="employee_ID" />
+          <ScalarProperty Name="patronymic" ColumnName="patronymic" />
+          <ScalarProperty Name="surname" ColumnName="surname" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="birthday" ColumnName="birthday" />
+          <ScalarProperty Name="date_of_issue" ColumnName="date_of_issue" />
+          <ScalarProperty Name="issued_by" ColumnName="issued_by" />
+          <ScalarProperty Name="department_code" ColumnName="department_code" />
+          <ScalarProperty Name="series" ColumnName="series" />
+          <ScalarProperty Name="number" ColumnName="number" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employes">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.Employes">
+        <MappingFragment StoreEntitySet="Employes">
+          <ScalarProperty Name="employee_ID" ColumnName="employee_ID" />
+          <ScalarProperty Name="bank_details" ColumnName="bank_details" />
+          <ScalarProperty Name="is_have_family" ColumnName="is_have_family" />
+          <ScalarProperty Name="health_problems" ColumnName="health_problems" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Equipment">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.Equipment">
+        <MappingFragment StoreEntitySet="Equipment">
+          <ScalarProperty Name="equipment_ID" ColumnName="equipment_ID" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+          <ScalarProperty Name="title" ColumnName="title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="material_type">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.material_type">
+        <MappingFragment StoreEntitySet="material_type">
+          <ScalarProperty Name="type_ID" ColumnName="type_ID" />
+          <ScalarProperty Name="title" ColumnName="title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materials">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.Materials">
+        <MappingFragment StoreEntitySet="Materials">
+          <ScalarProperty Name="material_ID" ColumnName="material_ID" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="material_type_ID" ColumnName="material_type_ID" />
+          <ScalarProperty Name="qty_in_package" ColumnName="qty_in_package" />
+          <ScalarProperty Name="unit" ColumnName="unit" />
+          <ScalarProperty Name="qty_in_storage" ColumnName="qty_in_storage" />
+          <ScalarProperty Name="minimal_qty" ColumnName="minimal_qty" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="price" ColumnName="price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materials_history">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.Materials_history">
+        <MappingFragment StoreEntitySet="Materials_history">
+          <ScalarProperty Name="material_ID" ColumnName="material_ID" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Minimal_price_history_change">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.Minimal_price_history_change">
+        <MappingFragment StoreEntitySet="Minimal_price_history_change">
+          <ScalarProperty Name="agent_ID" ColumnName="agent_ID" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Orders">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.Orders">
+        <MappingFragment StoreEntitySet="Orders">
+          <ScalarProperty Name="order_ID" ColumnName="order_ID" />
+          <ScalarProperty Name="agent_ID" ColumnName="agent_ID" />
+          <ScalarProperty Name="product_ID" ColumnName="product_ID" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Priority_history">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.Priority_history">
+        <MappingFragment StoreEntitySet="Priority_history">
+          <ScalarProperty Name="history_ID" ColumnName="history_ID" />
+          <ScalarProperty Name="agent_ID" ColumnName="agent_ID" />
+          <ScalarProperty Name="date" ColumnName="date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_info">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.Product_info">
+        <MappingFragment StoreEntitySet="Product_info">
+          <ScalarProperty Name="product_ID" ColumnName="product_ID" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="weight_neto" ColumnName="weight_neto" />
+          <ScalarProperty Name="weight_with_neto" ColumnName="weight_with_neto" />
+          <ScalarProperty Name="sertificate" ColumnName="sertificate" />
+          <ScalarProperty Name="standart_type_ID" ColumnName="standart_type_ID" />
+          <ScalarProperty Name="product_image" ColumnName="product_image" />
+          <ScalarProperty Name="time_to_create" ColumnName="time_to_create" />
+          <ScalarProperty Name="cost_price" ColumnName="cost_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_sale">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.Product_sale">
+        <MappingFragment StoreEntitySet="Product_sale">
+          <ScalarProperty Name="product_sale_ID" ColumnName="product_sale_ID" />
+          <ScalarProperty Name="product_ID" ColumnName="product_ID" />
+          <ScalarProperty Name="agent_ID" ColumnName="agent_ID" />
+          <ScalarProperty Name="release_date" ColumnName="release_date" />
+          <ScalarProperty Name="qty" ColumnName="qty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_size">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.Product_size">
+        <MappingFragment StoreEntitySet="Product_size">
+          <ScalarProperty Name="product_ID" ColumnName="product_ID" />
+          <ScalarProperty Name="width" ColumnName="width" />
+          <ScalarProperty Name="height" ColumnName="height" />
+          <ScalarProperty Name="lenght" ColumnName="lenght" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Product_type">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.Product_type">
+        <MappingFragment StoreEntitySet="Product_type">
+          <ScalarProperty Name="product_type_ID" ColumnName="product_type_ID" />
+          <ScalarProperty Name="title" ColumnName="title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Products">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.Products">
+        <MappingFragment StoreEntitySet="Products">
+          <ScalarProperty Name="product_id" ColumnName="product_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="product_type_ID" ColumnName="product_type_ID" />
+          <ScalarProperty Name="articul" ColumnName="articul" />
+          <ScalarProperty Name="peoples_need_to_create" ColumnName="peoples_need_to_create" />
+          <ScalarProperty Name="cex_num_ID" ColumnName="cex_num_ID" />
+          <ScalarProperty Name="minimal_price" ColumnName="minimal_price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Standart_types">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.Standart_types">
+        <MappingFragment StoreEntitySet="Standart_types">
+          <ScalarProperty Name="type_ID" ColumnName="type_ID" />
+          <ScalarProperty Name="title" ColumnName="title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Supplier_type">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.Supplier_type">
+        <MappingFragment StoreEntitySet="Supplier_type">
+          <ScalarProperty Name="supplier_type_ID" ColumnName="supplier_type_ID" />
+          <ScalarProperty Name="title" ColumnName="title" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Suppliers">
+      <EntityTypeMapping TypeName="poprijenok_PAVLOVASModel.Suppliers">
+        <MappingFragment StoreEntitySet="Suppliers">
+          <ScalarProperty Name="supplier_ID" ColumnName="supplier_ID" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="INN" ColumnName="INN" />
+          <ScalarProperty Name="supplier_type_ID" ColumnName="supplier_type_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Cex_empolyees" TypeName="poprijenok_PAVLOVASModel.Cex_empolyees" StoreEntitySet="Cex_empolyees">
+      <EndProperty Name="Employes">
+        <ScalarProperty Name="employee_ID" ColumnName="employee_ID" />
+      </EndProperty>
+      <EndProperty Name="Cex">
+        <ScalarProperty Name="cex_num_ID" ColumnName="cex_num_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Equipment_of_employee" TypeName="poprijenok_PAVLOVASModel.Equipment_of_employee" StoreEntitySet="Equipment_of_employee">
+      <EndProperty Name="Employes">
+        <ScalarProperty Name="employee_ID" ColumnName="employee_ID" />
+      </EndProperty>
+      <EndProperty Name="Equipment">
+        <ScalarProperty Name="equipment_ID" ColumnName="equipment_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="materials_need_to_create_poduct" TypeName="poprijenok_PAVLOVASModel.materials_need_to_create_poduct" StoreEntitySet="materials_need_to_create_poduct">
+      <EndProperty Name="Materials">
+        <ScalarProperty Name="material_ID" ColumnName="material_ID" />
+      </EndProperty>
+      <EndProperty Name="Products">
+        <ScalarProperty Name="product_id" ColumnName="product_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Supply_history" TypeName="poprijenok_PAVLOVASModel.Supply_history" StoreEntitySet="Supply_history">
+      <EndProperty Name="Materials">
+        <ScalarProperty Name="material_ID" ColumnName="material_ID" />
+      </EndProperty>
+      <EndProperty Name="Suppliers">
+        <ScalarProperty Name="supplier_ID" ColumnName="supplier_ID" />
+      </EndProperty>
+    </AssociationSetMapping>
+  </EntityContainerMapping>
+</Mapping>

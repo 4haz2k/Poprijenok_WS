@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b2ad36138f224957869ad5b06b354a98" Name="Diagram1">
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.Agent_address" Width="1.5" PointX="9.75" PointY="25.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.Agent_release_history" Width="1.5" PointX="9.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.Agents" Width="1.5" PointX="7.5" PointY="18.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.Agents_type" Width="1.5" PointX="5.25" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.Cex" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.Employee_pasport" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.Employes" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.Equipment" Width="1.5" PointX="5.25" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.material_type" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.Materials" Width="1.5" PointX="5.25" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.Materials_history" Width="1.5" PointX="7.5" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.Minimal_price_history_change" Width="1.5" PointX="9.75" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.Orders" Width="1.5" PointX="12.75" PointY="8.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.Priority_history" Width="1.5" PointX="9.75" PointY="28.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.Product_info" Width="1.5" PointX="9.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.Product_sale" Width="1.5" PointX="9.75" PointY="12.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.Product_size" Width="1.5" PointX="9.75" PointY="22.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.Product_type" Width="1.5" PointX="5.25" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.Products" Width="1.5" PointX="7.5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.Standart_types" Width="1.5" PointX="7.5" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.Supplier_type" Width="1.5" PointX="8.25" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="poprijenok_PAVLOVASModel.Suppliers" Width="1.5" PointX="10.5" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.FK_Agent_address_Agents" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.FK_Agent_release_history_Agents" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.FK_Agent_release_history_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.FK_Agents_Agents_type" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.FK_Minimal_price_history_change_Agents" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.FK_Orders_Agents" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.FK_Priority_history_Agents" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.FK_Product_sale_Agents" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.FK_Products_Cex" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.FK_Employes_Employee_pasport" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.FK_Materials_material_type" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.FK_Materials_history_Materials" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.FK_Orders_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.FK_Product_info_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.FK_Product_info_Standart_types" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.FK_Product_sale_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.FK_Product_size_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.FK_Products_Product_type" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.FK_Suppliers_Supplier_type" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.Cex_empolyees" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.Equipment_of_employee" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.materials_need_to_create_poduct" ManuallyRouted="false" />
+        <AssociationConnector Association="poprijenok_PAVLOVASModel.Supply_history" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

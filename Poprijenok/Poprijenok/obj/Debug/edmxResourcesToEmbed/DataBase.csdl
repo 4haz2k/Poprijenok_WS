@@ -1,0 +1,623 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="poprijenok_PAVLOVASModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Agent_address">
+    <Key>
+      <PropertyRef Name="Agent_ID" />
+    </Key>
+    <Property Name="Agent_ID" Type="Int32" Nullable="false" />
+    <Property Name="index" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="region" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="city" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="street" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="frame" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Agents" Relationship="Self.FK_Agent_address_Agents" FromRole="Agent_address" ToRole="Agents" />
+  </EntityType>
+  <EntityType Name="Agent_release_history">
+    <Key>
+      <PropertyRef Name="release_ID" />
+    </Key>
+    <Property Name="release_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="agent_ID" Type="Int32" Nullable="false" />
+    <Property Name="product_ID" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="qty" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Agents" Relationship="Self.FK_Agent_release_history_Agents" FromRole="Agent_release_history" ToRole="Agents" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Agent_release_history_Products" FromRole="Agent_release_history" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Agents">
+    <Key>
+      <PropertyRef Name="agent_ID" />
+    </Key>
+    <Property Name="agent_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="agent_type_ID" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="priority" Type="Int32" Nullable="false" />
+    <Property Name="director_surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="director_name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="director_patronymic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="INN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="KPP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Agent_address" Relationship="Self.FK_Agent_address_Agents" FromRole="Agents" ToRole="Agent_address" />
+    <NavigationProperty Name="Agent_release_history" Relationship="Self.FK_Agent_release_history_Agents" FromRole="Agents" ToRole="Agent_release_history" />
+    <NavigationProperty Name="Agents_type" Relationship="Self.FK_Agents_Agents_type" FromRole="Agents" ToRole="Agents_type" />
+    <NavigationProperty Name="Minimal_price_history_change" Relationship="Self.FK_Minimal_price_history_change_Agents" FromRole="Agents" ToRole="Minimal_price_history_change" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Agents" FromRole="Agents" ToRole="Orders" />
+    <NavigationProperty Name="Priority_history" Relationship="Self.FK_Priority_history_Agents" FromRole="Agents" ToRole="Priority_history" />
+    <NavigationProperty Name="Product_sale" Relationship="Self.FK_Product_sale_Agents" FromRole="Agents" ToRole="Product_sale" />
+  </EntityType>
+  <EntityType Name="Agents_type">
+    <Key>
+      <PropertyRef Name="type_ID" />
+    </Key>
+    <Property Name="type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Agents" Relationship="Self.FK_Agents_Agents_type" FromRole="Agents_type" ToRole="Agents" />
+  </EntityType>
+  <EntityType Name="Cex">
+    <Key>
+      <PropertyRef Name="cex_num_ID" />
+    </Key>
+    <Property Name="cex_num_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Products_Cex" FromRole="Cex" ToRole="Products" />
+    <NavigationProperty Name="Employes" Relationship="Self.Cex_empolyees" FromRole="Cex" ToRole="Employes" />
+  </EntityType>
+  <EntityType Name="Employee_pasport">
+    <Key>
+      <PropertyRef Name="employee_ID" />
+    </Key>
+    <Property Name="employee_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="patronymic" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="surname" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="birthday" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="date_of_issue" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="issued_by" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="department_code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="series" Type="Int32" Nullable="false" />
+    <Property Name="number" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Employes" Relationship="Self.FK_Employes_Employee_pasport" FromRole="Employee_pasport" ToRole="Employes" />
+  </EntityType>
+  <EntityType Name="Employes">
+    <Key>
+      <PropertyRef Name="employee_ID" />
+    </Key>
+    <Property Name="employee_ID" Type="Int32" Nullable="false" />
+    <Property Name="bank_details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="is_have_family" Type="Boolean" Nullable="false" />
+    <Property Name="health_problems" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Employee_pasport" Relationship="Self.FK_Employes_Employee_pasport" FromRole="Employes" ToRole="Employee_pasport" />
+    <NavigationProperty Name="Cex" Relationship="Self.Cex_empolyees" FromRole="Employes" ToRole="Cex" />
+    <NavigationProperty Name="Equipment" Relationship="Self.Equipment_of_employee" FromRole="Employes" ToRole="Equipment" />
+  </EntityType>
+  <EntityType Name="Equipment">
+    <Key>
+      <PropertyRef Name="equipment_ID" />
+    </Key>
+    <Property Name="equipment_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="qty" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Employes" Relationship="Self.Equipment_of_employee" FromRole="Equipment" ToRole="Employes" />
+  </EntityType>
+  <EntityType Name="material_type">
+    <Key>
+      <PropertyRef Name="type_ID" />
+    </Key>
+    <Property Name="type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Materials" Relationship="Self.FK_Materials_material_type" FromRole="material_type" ToRole="Materials" />
+  </EntityType>
+  <EntityType Name="Materials">
+    <Key>
+      <PropertyRef Name="material_ID" />
+    </Key>
+    <Property Name="material_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="material_type_ID" Type="Int32" Nullable="false" />
+    <Property Name="qty_in_package" Type="Int32" Nullable="false" />
+    <Property Name="unit" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="qty_in_storage" Type="Int32" Nullable="false" />
+    <Property Name="minimal_qty" Type="Int32" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="material_type" Relationship="Self.FK_Materials_material_type" FromRole="Materials" ToRole="material_type" />
+    <NavigationProperty Name="Materials_history" Relationship="Self.FK_Materials_history_Materials" FromRole="Materials" ToRole="Materials_history" />
+    <NavigationProperty Name="Products" Relationship="Self.materials_need_to_create_poduct" FromRole="Materials" ToRole="Products" />
+    <NavigationProperty Name="Suppliers" Relationship="Self.Supply_history" FromRole="Materials" ToRole="Suppliers" />
+  </EntityType>
+  <EntityType Name="Materials_history">
+    <Key>
+      <PropertyRef Name="material_ID" />
+    </Key>
+    <Property Name="material_ID" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="qty" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Materials" Relationship="Self.FK_Materials_history_Materials" FromRole="Materials_history" ToRole="Materials" />
+  </EntityType>
+  <EntityType Name="Minimal_price_history_change">
+    <Key>
+      <PropertyRef Name="agent_ID" />
+    </Key>
+    <Property Name="agent_ID" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Agents" Relationship="Self.FK_Minimal_price_history_change_Agents" FromRole="Minimal_price_history_change" ToRole="Agents" />
+  </EntityType>
+  <EntityType Name="Orders">
+    <Key>
+      <PropertyRef Name="order_ID" />
+    </Key>
+    <Property Name="order_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="agent_ID" Type="Int32" Nullable="false" />
+    <Property Name="product_ID" Type="Int32" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Agents" Relationship="Self.FK_Orders_Agents" FromRole="Orders" ToRole="Agents" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Orders_Products" FromRole="Orders" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Priority_history">
+    <Key>
+      <PropertyRef Name="history_ID" />
+    </Key>
+    <Property Name="history_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="agent_ID" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Agents" Relationship="Self.FK_Priority_history_Agents" FromRole="Priority_history" ToRole="Agents" />
+  </EntityType>
+  <EntityType Name="Product_info">
+    <Key>
+      <PropertyRef Name="product_ID" />
+    </Key>
+    <Property Name="product_ID" Type="Int32" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="weight_neto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="weight_with_neto" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="sertificate" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="standart_type_ID" Type="Int32" Nullable="false" />
+    <Property Name="product_image" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="time_to_create" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="cost_price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Product_info_Products" FromRole="Product_info" ToRole="Products" />
+    <NavigationProperty Name="Standart_types" Relationship="Self.FK_Product_info_Standart_types" FromRole="Product_info" ToRole="Standart_types" />
+  </EntityType>
+  <EntityType Name="Product_sale">
+    <Key>
+      <PropertyRef Name="product_sale_ID" />
+    </Key>
+    <Property Name="product_sale_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="product_ID" Type="Int32" Nullable="false" />
+    <Property Name="agent_ID" Type="Int32" Nullable="false" />
+    <Property Name="release_date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="qty" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Agents" Relationship="Self.FK_Product_sale_Agents" FromRole="Product_sale" ToRole="Agents" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Product_sale_Products" FromRole="Product_sale" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Product_size">
+    <Key>
+      <PropertyRef Name="product_ID" />
+    </Key>
+    <Property Name="product_ID" Type="Int32" Nullable="false" />
+    <Property Name="width" Type="Double" Nullable="false" />
+    <Property Name="height" Type="Double" Nullable="false" />
+    <Property Name="lenght" Type="Double" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Product_size_Products" FromRole="Product_size" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Product_type">
+    <Key>
+      <PropertyRef Name="product_type_ID" />
+    </Key>
+    <Property Name="product_type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Products" Relationship="Self.FK_Products_Product_type" FromRole="Product_type" ToRole="Products" />
+  </EntityType>
+  <EntityType Name="Products">
+    <Key>
+      <PropertyRef Name="product_id" />
+    </Key>
+    <Property Name="product_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="product_type_ID" Type="Int32" Nullable="false" />
+    <Property Name="articul" Type="Int32" Nullable="false" />
+    <Property Name="peoples_need_to_create" Type="Int32" Nullable="false" />
+    <Property Name="cex_num_ID" Type="Int32" Nullable="false" />
+    <Property Name="minimal_price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <NavigationProperty Name="Agent_release_history" Relationship="Self.FK_Agent_release_history_Products" FromRole="Products" ToRole="Agent_release_history" />
+    <NavigationProperty Name="Cex" Relationship="Self.FK_Products_Cex" FromRole="Products" ToRole="Cex" />
+    <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Products" FromRole="Products" ToRole="Orders" />
+    <NavigationProperty Name="Product_info" Relationship="Self.FK_Product_info_Products" FromRole="Products" ToRole="Product_info" />
+    <NavigationProperty Name="Product_sale" Relationship="Self.FK_Product_sale_Products" FromRole="Products" ToRole="Product_sale" />
+    <NavigationProperty Name="Product_size" Relationship="Self.FK_Product_size_Products" FromRole="Products" ToRole="Product_size" />
+    <NavigationProperty Name="Product_type" Relationship="Self.FK_Products_Product_type" FromRole="Products" ToRole="Product_type" />
+    <NavigationProperty Name="Materials" Relationship="Self.materials_need_to_create_poduct" FromRole="Products" ToRole="Materials" />
+  </EntityType>
+  <EntityType Name="Standart_types">
+    <Key>
+      <PropertyRef Name="type_ID" />
+    </Key>
+    <Property Name="type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Product_info" Relationship="Self.FK_Product_info_Standart_types" FromRole="Standart_types" ToRole="Product_info" />
+  </EntityType>
+  <EntityType Name="Supplier_type">
+    <Key>
+      <PropertyRef Name="supplier_type_ID" />
+    </Key>
+    <Property Name="supplier_type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Suppliers" Relationship="Self.FK_Suppliers_Supplier_type" FromRole="Supplier_type" ToRole="Suppliers" />
+  </EntityType>
+  <EntityType Name="Suppliers">
+    <Key>
+      <PropertyRef Name="supplier_ID" />
+    </Key>
+    <Property Name="supplier_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="INN" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="supplier_type_ID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Supplier_type" Relationship="Self.FK_Suppliers_Supplier_type" FromRole="Suppliers" ToRole="Supplier_type" />
+    <NavigationProperty Name="Materials" Relationship="Self.Supply_history" FromRole="Suppliers" ToRole="Materials" />
+  </EntityType>
+  <Association Name="FK_Agent_address_Agents">
+    <End Role="Agents" Type="Self.Agents" Multiplicity="1" />
+    <End Role="Agent_address" Type="Self.Agent_address" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Agents">
+        <PropertyRef Name="agent_ID" />
+      </Principal>
+      <Dependent Role="Agent_address">
+        <PropertyRef Name="Agent_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agent_release_history_Agents">
+    <End Role="Agents" Type="Self.Agents" Multiplicity="1" />
+    <End Role="Agent_release_history" Type="Self.Agent_release_history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agents">
+        <PropertyRef Name="agent_ID" />
+      </Principal>
+      <Dependent Role="Agent_release_history">
+        <PropertyRef Name="agent_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agent_release_history_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Agent_release_history" Type="Self.Agent_release_history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="Agent_release_history">
+        <PropertyRef Name="product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Agents_Agents_type">
+    <End Role="Agents_type" Type="Self.Agents_type" Multiplicity="1" />
+    <End Role="Agents" Type="Self.Agents" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agents_type">
+        <PropertyRef Name="type_ID" />
+      </Principal>
+      <Dependent Role="Agents">
+        <PropertyRef Name="agent_type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Minimal_price_history_change_Agents">
+    <End Role="Agents" Type="Self.Agents" Multiplicity="1" />
+    <End Role="Minimal_price_history_change" Type="Self.Minimal_price_history_change" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Agents">
+        <PropertyRef Name="agent_ID" />
+      </Principal>
+      <Dependent Role="Minimal_price_history_change">
+        <PropertyRef Name="agent_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Agents">
+    <End Role="Agents" Type="Self.Agents" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agents">
+        <PropertyRef Name="agent_ID" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="agent_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Priority_history_Agents">
+    <End Role="Agents" Type="Self.Agents" Multiplicity="1" />
+    <End Role="Priority_history" Type="Self.Priority_history" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agents">
+        <PropertyRef Name="agent_ID" />
+      </Principal>
+      <Dependent Role="Priority_history">
+        <PropertyRef Name="agent_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_sale_Agents">
+    <End Role="Agents" Type="Self.Agents" Multiplicity="1" />
+    <End Role="Product_sale" Type="Self.Product_sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Agents">
+        <PropertyRef Name="agent_ID" />
+      </Principal>
+      <Dependent Role="Product_sale">
+        <PropertyRef Name="agent_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Cex">
+    <End Role="Cex" Type="Self.Cex" Multiplicity="1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cex">
+        <PropertyRef Name="cex_num_ID" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="cex_num_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Employes_Employee_pasport">
+    <End Role="Employee_pasport" Type="Self.Employee_pasport" Multiplicity="1" />
+    <End Role="Employes" Type="Self.Employes" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Employee_pasport">
+        <PropertyRef Name="employee_ID" />
+      </Principal>
+      <Dependent Role="Employes">
+        <PropertyRef Name="employee_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Materials_material_type">
+    <End Role="material_type" Type="Self.material_type" Multiplicity="1" />
+    <End Role="Materials" Type="Self.Materials" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="material_type">
+        <PropertyRef Name="type_ID" />
+      </Principal>
+      <Dependent Role="Materials">
+        <PropertyRef Name="material_type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Materials_history_Materials">
+    <End Role="Materials" Type="Self.Materials" Multiplicity="1" />
+    <End Role="Materials_history" Type="Self.Materials_history" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Materials">
+        <PropertyRef Name="material_ID" />
+      </Principal>
+      <Dependent Role="Materials_history">
+        <PropertyRef Name="material_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Orders_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="Orders">
+        <PropertyRef Name="product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_info_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Product_info" Type="Self.Product_info" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="Product_info">
+        <PropertyRef Name="product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_info_Standart_types">
+    <End Role="Standart_types" Type="Self.Standart_types" Multiplicity="1" />
+    <End Role="Product_info" Type="Self.Product_info" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Standart_types">
+        <PropertyRef Name="type_ID" />
+      </Principal>
+      <Dependent Role="Product_info">
+        <PropertyRef Name="standart_type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_sale_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Product_sale" Type="Self.Product_sale" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="Product_sale">
+        <PropertyRef Name="product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_size_Products">
+    <End Role="Products" Type="Self.Products" Multiplicity="1" />
+    <End Role="Product_size" Type="Self.Product_size" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Products">
+        <PropertyRef Name="product_id" />
+      </Principal>
+      <Dependent Role="Product_size">
+        <PropertyRef Name="product_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Products_Product_type">
+    <End Role="Product_type" Type="Self.Product_type" Multiplicity="1" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product_type">
+        <PropertyRef Name="product_type_ID" />
+      </Principal>
+      <Dependent Role="Products">
+        <PropertyRef Name="product_type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Suppliers_Supplier_type">
+    <End Role="Supplier_type" Type="Self.Supplier_type" Multiplicity="1" />
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Supplier_type">
+        <PropertyRef Name="supplier_type_ID" />
+      </Principal>
+      <Dependent Role="Suppliers">
+        <PropertyRef Name="supplier_type_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Cex_empolyees">
+    <End Role="Employes" Type="Self.Employes" Multiplicity="*" />
+    <End Role="Cex" Type="Self.Cex" Multiplicity="*" />
+  </Association>
+  <Association Name="Equipment_of_employee">
+    <End Role="Employes" Type="Self.Employes" Multiplicity="*" />
+    <End Role="Equipment" Type="Self.Equipment" Multiplicity="*" />
+  </Association>
+  <Association Name="materials_need_to_create_poduct">
+    <End Role="Materials" Type="Self.Materials" Multiplicity="*" />
+    <End Role="Products" Type="Self.Products" Multiplicity="*" />
+  </Association>
+  <Association Name="Supply_history">
+    <End Role="Materials" Type="Self.Materials" Multiplicity="*" />
+    <End Role="Suppliers" Type="Self.Suppliers" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="poprijenokEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Agent_address" EntityType="Self.Agent_address" />
+    <EntitySet Name="Agent_release_history" EntityType="Self.Agent_release_history" />
+    <EntitySet Name="Agents" EntityType="Self.Agents" />
+    <EntitySet Name="Agents_type" EntityType="Self.Agents_type" />
+    <EntitySet Name="Cex" EntityType="Self.Cex" />
+    <EntitySet Name="Employee_pasport" EntityType="Self.Employee_pasport" />
+    <EntitySet Name="Employes" EntityType="Self.Employes" />
+    <EntitySet Name="Equipment" EntityType="Self.Equipment" />
+    <EntitySet Name="material_type" EntityType="Self.material_type" />
+    <EntitySet Name="Materials" EntityType="Self.Materials" />
+    <EntitySet Name="Materials_history" EntityType="Self.Materials_history" />
+    <EntitySet Name="Minimal_price_history_change" EntityType="Self.Minimal_price_history_change" />
+    <EntitySet Name="Orders" EntityType="Self.Orders" />
+    <EntitySet Name="Priority_history" EntityType="Self.Priority_history" />
+    <EntitySet Name="Product_info" EntityType="Self.Product_info" />
+    <EntitySet Name="Product_sale" EntityType="Self.Product_sale" />
+    <EntitySet Name="Product_size" EntityType="Self.Product_size" />
+    <EntitySet Name="Product_type" EntityType="Self.Product_type" />
+    <EntitySet Name="Products" EntityType="Self.Products" />
+    <EntitySet Name="Standart_types" EntityType="Self.Standart_types" />
+    <EntitySet Name="Supplier_type" EntityType="Self.Supplier_type" />
+    <EntitySet Name="Suppliers" EntityType="Self.Suppliers" />
+    <AssociationSet Name="FK_Agent_address_Agents" Association="Self.FK_Agent_address_Agents">
+      <End Role="Agents" EntitySet="Agents" />
+      <End Role="Agent_address" EntitySet="Agent_address" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agent_release_history_Agents" Association="Self.FK_Agent_release_history_Agents">
+      <End Role="Agents" EntitySet="Agents" />
+      <End Role="Agent_release_history" EntitySet="Agent_release_history" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agent_release_history_Products" Association="Self.FK_Agent_release_history_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Agent_release_history" EntitySet="Agent_release_history" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Agents_Agents_type" Association="Self.FK_Agents_Agents_type">
+      <End Role="Agents_type" EntitySet="Agents_type" />
+      <End Role="Agents" EntitySet="Agents" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Minimal_price_history_change_Agents" Association="Self.FK_Minimal_price_history_change_Agents">
+      <End Role="Agents" EntitySet="Agents" />
+      <End Role="Minimal_price_history_change" EntitySet="Minimal_price_history_change" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Agents" Association="Self.FK_Orders_Agents">
+      <End Role="Agents" EntitySet="Agents" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Priority_history_Agents" Association="Self.FK_Priority_history_Agents">
+      <End Role="Agents" EntitySet="Agents" />
+      <End Role="Priority_history" EntitySet="Priority_history" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_sale_Agents" Association="Self.FK_Product_sale_Agents">
+      <End Role="Agents" EntitySet="Agents" />
+      <End Role="Product_sale" EntitySet="Product_sale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Cex" Association="Self.FK_Products_Cex">
+      <End Role="Cex" EntitySet="Cex" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Employes_Employee_pasport" Association="Self.FK_Employes_Employee_pasport">
+      <End Role="Employee_pasport" EntitySet="Employee_pasport" />
+      <End Role="Employes" EntitySet="Employes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Materials_material_type" Association="Self.FK_Materials_material_type">
+      <End Role="material_type" EntitySet="material_type" />
+      <End Role="Materials" EntitySet="Materials" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Materials_history_Materials" Association="Self.FK_Materials_history_Materials">
+      <End Role="Materials" EntitySet="Materials" />
+      <End Role="Materials_history" EntitySet="Materials_history" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Orders_Products" Association="Self.FK_Orders_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Orders" EntitySet="Orders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_info_Products" Association="Self.FK_Product_info_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Product_info" EntitySet="Product_info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_info_Standart_types" Association="Self.FK_Product_info_Standart_types">
+      <End Role="Standart_types" EntitySet="Standart_types" />
+      <End Role="Product_info" EntitySet="Product_info" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_sale_Products" Association="Self.FK_Product_sale_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Product_sale" EntitySet="Product_sale" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_size_Products" Association="Self.FK_Product_size_Products">
+      <End Role="Products" EntitySet="Products" />
+      <End Role="Product_size" EntitySet="Product_size" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Products_Product_type" Association="Self.FK_Products_Product_type">
+      <End Role="Product_type" EntitySet="Product_type" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Suppliers_Supplier_type" Association="Self.FK_Suppliers_Supplier_type">
+      <End Role="Supplier_type" EntitySet="Supplier_type" />
+      <End Role="Suppliers" EntitySet="Suppliers" />
+    </AssociationSet>
+    <AssociationSet Name="Cex_empolyees" Association="Self.Cex_empolyees">
+      <End Role="Employes" EntitySet="Employes" />
+      <End Role="Cex" EntitySet="Cex" />
+    </AssociationSet>
+    <AssociationSet Name="Equipment_of_employee" Association="Self.Equipment_of_employee">
+      <End Role="Employes" EntitySet="Employes" />
+      <End Role="Equipment" EntitySet="Equipment" />
+    </AssociationSet>
+    <AssociationSet Name="materials_need_to_create_poduct" Association="Self.materials_need_to_create_poduct">
+      <End Role="Materials" EntitySet="Materials" />
+      <End Role="Products" EntitySet="Products" />
+    </AssociationSet>
+    <AssociationSet Name="Supply_history" Association="Self.Supply_history">
+      <End Role="Materials" EntitySet="Materials" />
+      <End Role="Suppliers" EntitySet="Suppliers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
