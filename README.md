@@ -1,4 +1,4 @@
-# Poprijenok_WS
+# Poprijenok Theme
 
 ## What is this?
 World Skills: business software solutions task
